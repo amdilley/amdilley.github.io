@@ -1,8 +1,8 @@
 ---
-layout: post
-title:  "Anatomy of a Word Search Game"
-date:   2024-09-14 21:03:02 +0200
-image: "/assets/img/2024-09-14-anatomy-of-a-word-search-game/7B293196-81BC-4E32-93FD-E0BD82CE4606.png"
+layout:     post
+title:      "Anatomy of a Word Search Game"
+date:       2024-09-14 21:03:02 +0200
+image:      "/assets/img/2024-09-14-anatomy-of-a-word-search-game/7B293196-81BC-4E32-93FD-E0BD82CE4606.png"
 categories: combinatorics sql
 ---
 
