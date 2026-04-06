@@ -38,8 +38,8 @@ Regex can also consolidate the number of passes over a given string. Here’s on
 // [data-test_attribute] -> test_attribute
 const getDataAttributeKey = (selector) =>
   selector
-    .replace('[data-', '')
-    .replace(']', '');
+    .replace("[data-", "")
+    .replace("]", "");
 ```
 
 This works, but involves three passes over the input string. Now with regex:
@@ -47,7 +47,7 @@ This works, but involves three passes over the input string. Now with regex:
 ```js
 // [data-test_attribute] -> test_attribute
 const getDataAttributeKey = (selector) =>
-  selector.replace(/\[data-([^\]]+)\]/, '$1');
+  selector.replace(/\[data-([^\]]+)\]/, "$1");
 ```
 
 The regex isn’t easier to read, but we’ve cut down the number of passes from 2 to 1.
@@ -95,12 +95,12 @@ No one should be expected to validate this on sight. Instead we should test thes
 
 ```js
 assert(
-  EMAIL_REGEX.test('aaron@aarondilley.com'),
+  EMAIL_REGEX.test("aaron@aarondilley.com"),
   true,
 );
 
 assert(
-  EMAIL_REGEX.test('aaron@aarondilley@com'),
+  EMAIL_REGEX.test("aaron@aarondilley@com"),
   false,
 );
 ```
@@ -253,24 +253,24 @@ const isPhone = (str) => /^\d{3}-\d{3}-\d{4}$/.test(str);
 It would probably be pretty handy if we could eliminate the need to specify the `str` param. FP to the rescue:
 
 ```js
-import { curry } from 'lodash';
-import { filter } from 'lodash/fp';
+import { curry } from "lodash";
+import { filter } from "lodash/fp";
 
 const regexTest = curry((regex, str) => regex.test(str));
 
 // is string in 555-555-5555 format
 const isPhone = regexTest(/^\d{3}-\d{3}-\d{4}$/);
 
-isPhone('555-555-5555'); // true
+isPhone("555-555-5555"); // true
 
 const onlyVowels = filter(regexTest(/^[aeiou]+$/i));
 
 onlyVowels([
-  'Hello',
-  'EIEIO',
-  'aaaaaa',
-  'aaaaah',
-]); // ['EIEIO', 'aaaaaa']
+  "Hello",
+  "EIEIO",
+  "aaaaaa",
+  "aaaaah",
+]); // ["EIEIO", "aaaaaa"]
 ```
 
 ## Resources
@@ -278,8 +278,7 @@ onlyVowels([
 * [Regex101][regex-101]
 * [Multi-language word matching][multi-lang-word-matching]
 * [Regex Golf][regex-golf]
-* Converting Deterministic Finite Automata to Regular Expressions
-  * [2005-03-16.DFA_to_RegEx.pdf][dfa-to-regex]
+* [Converting Deterministic Finite Automata to Regular Expressions][dfa-to-regex]
 
 [catastrophic-backtracking]: https://vimeo.com/112065252
 [regex-101]:                 https://regex101.com/
